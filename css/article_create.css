@@ -1,0 +1,15 @@
+.page_title{
+    text-align: center;
+    margin : 20px 0px;
+}
+.wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.left_box {
+    margin-bottom: 20px;
+
+}
