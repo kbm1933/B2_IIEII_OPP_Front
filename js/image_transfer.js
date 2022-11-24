@@ -72,6 +72,7 @@ function checkOnlyOne(element){
 async function handleuploadimg(){
     const img = document.querySelector('#file')
     const checks = document.getElementsByName('dnn-models').length
+    
     for (var i=0; i<checks; i++){
         if (document.getElementsByName('dnn-models')[i].checked == true){
             dnn_num = document.getElementsByName('dnn-models')[i].value
@@ -92,4 +93,10 @@ async function handleuploadimg(){
         body: formdata
     }
     ).then(window.location.replace('article_create.html'))
+}
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
 }

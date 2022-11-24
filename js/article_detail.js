@@ -36,3 +36,10 @@ async function load_detail(){
     
     
 }
+
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
+}

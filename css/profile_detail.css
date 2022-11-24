@@ -1,0 +1,59 @@
+.profile_detail_container{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 200px;
+
+}
+
+.profile {
+    margin-top: 200px;
+    width: 300px;
+    height: 300px; 
+    border-radius: 30%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+}
+
+.user_profile_img{
+    width: 300px;
+    height: 300px; 
+}
+
+.username{
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+.user_upload_img {
+    border : 1px solid gray;
+    font-size: 20px;
+    width: 400px;
+    height: 500px;
+    overflow: auto;
+}
+
+.form-control{
+    width: 450px;
+}
+
+.profile_detail_btn{
+    margin-top: 250px;
+}
+
+.profile_detail_btn>button{
+    margin-top: 250px;
+    width: 400px;
+}
+
+.profile_detail_finish>button{
+    margin-top: 20px;
+    width: 400px;
+}
+
+.line{
+    margin-top: 30px;
+    width: 450px;
+}

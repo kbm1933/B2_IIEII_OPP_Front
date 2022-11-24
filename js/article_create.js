@@ -45,3 +45,9 @@ async function create_article(){
     })
     window.location.replace('main.html')
 }
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
+}
