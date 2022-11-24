@@ -44,7 +44,6 @@ async function userProfileUpload(){
         body: formdata
     }
     )
-    window.location.location('html/profile.html')
 }
 
 
