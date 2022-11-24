@@ -52,8 +52,8 @@ async function handleSignup(){
 }
 
 
-
 function handleLogout(){
     localStorage.clear()
     window.location.replace("signin.html")
 }
+
