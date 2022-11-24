@@ -16,11 +16,17 @@
 <body>
 
     <div class = 'main_btn_box'>
-        <button type="button" class="btn btn-outline-dark" id = 'main_btn'>홈 화면으로</button>
+        <button type="button" class="btn btn-outline-dark" id = 'main_btn' onclick="location.href='main.html'">홈 화면으로</button>
     </div>
 <div class = 'wrap'>
 
     <img id = 'detail_img'>
+    <div id = 'left_box'>
+        <div class = 'btns'>
+            <button type="button" class="btn btn-outline-dark" onclick="location.href='edit_article.html'">edit</button>
+            <button type="button" class="btn btn-outline-dark" onclick="handleDelete()">delete</button>
+        </div>
+
    
         <div class="card">
             <div class="card-header" id = 'detail_title'>
@@ -28,10 +34,12 @@
             <div class="card-body">
               <blockquote class="blockquote mb-0">
                 <p id = 'detail_content'></p>
+                <br>
                 <footer class="blockquote-footer" id = 'username'></footer>
               </blockquote>
             </div>
           </div>
+        </div>
 </div>            
                
     <script src="../js/article_detail.js"></script>
