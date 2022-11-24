@@ -16,30 +16,36 @@
 
 <body>
     <div class="pagetitle"><h2>사진보내기</h2></div>
-    <div class="write-box">
-        <hr>
-        <form>
-            <div class='input-group'>
-                <label class="input-group-text" for="images">사진 업로드</label>
-                <input class="form-control" type="file" id="file" accept="image/*">
-                <button type="button" class="btn btn-outline-dark" onclick="handleuploadimg()">전송</button>
+        <div class="write-box">
+            <hr>
+            <form>
+                <div class='input-group'>
+                    <label class="input-group-text" for="images">사진 업로드</label>
+                    <input class="form-control" type="file" id="file" accept="image/*">
+                </div>
+                <div class="preview-Img-box">
+                    <img class="preview-Img" id="previewImg" alt="이미지"/>
+                </div>
+            </form>
+            <div class="select-dnn-box">
+                <h4>화풍을 선택하세요</h4>
+                <input type="checkbox" name="dnn-models" value="1" onclick="checkOnlyOne(this); checkedImgView(this)"> 1.mosaic<br>
+                <input type="checkbox" name="dnn-models" value="2" onclick="checkOnlyOne(this); checkedImgView(this)"> 2.candy<br>
+                <input type="checkbox" name="dnn-models" value="3" onclick="checkOnlyOne(this); checkedImgView(this)"> 3.feathers<br>
+                <input type="checkbox" name="dnn-models" value="4" onclick="checkOnlyOne(this); checkedImgView(this)"> 4.starrynight<br>
+                <input type="checkbox" name="dnn-models" value="5" onclick="checkOnlyOne(this); checkedImgView(this)"> 5.la muse<br>
+                <input type="checkbox" name="dnn-models" value="6" onclick="checkOnlyOne(this); checkedImgView(this)"> 6.the scream<br>
+                <input type="checkbox" name="dnn-models" value="7" onclick="checkOnlyOne(this); checkedImgView(this)"> 7.udnie<br>
+                <input type="checkbox" name="dnn-models" value="8" onclick="checkOnlyOne(this); checkedImgView(this)"> 8.composition_vii<br>
+                <input type="checkbox" name="dnn-models" value="9" onclick="checkOnlyOne(this); checkedImgView(this)"> 9.the wave<br>
+
             </div>
-            <div class="preview-Img-box">
-                <img class="preview-Img" id="previewImg" alt="이미지 영역"/>
+            <div class="checked-Img-box">
+                <img class="checked-Img" id="checked-image" src="" alt="선택된 모델 없음"/>
             </div>
-        </form>
-        <div class="select-dnn-box">
-            <h4>화풍을 선택하세요</h4>
-            <input type="checkbox" name="dnn-models" value="1" onclick="checkOnlyOne(this)">1.mosaic<br>
-            <input type="checkbox" name="dnn-models" value="2" onclick="checkOnlyOne(this)">2.candy<br>
-            <input type="checkbox" name="dnn-models" value="3" onclick="checkOnlyOne(this)">3.feathers<br>
-            <input type="checkbox" name="dnn-models" value="4" onclick="checkOnlyOne(this)">4.starrynight<br>
-            <input type="checkbox" name="dnn-models" value="5" onclick="checkOnlyOne(this)">5.la muse<br>
-            <input type="checkbox" name="dnn-models" value="6" onclick="checkOnlyOne(this)">6.the scream<br>
-            <input type="checkbox" name="dnn-models" value="7" onclick="checkOnlyOne(this)">7.udnie<br>
-            <input type="checkbox" name="dnn-models" value="8" onclick="checkOnlyOne(this)">8.composition_vii<br>
-            <input type="checkbox" name="dnn-models" value="9" onclick="checkOnlyOne(this)">9.the wave<br>
         </div>
-    </div>
+        <div style="width: 100px; margin:auto">
+        <button type="button" class="btn btn-outline-dark" onclick="handleuploadimg()">변환하기</button>
+        </div>
     <script src="/js/image_transfer.js"></script>
 </body>
