@@ -21,12 +21,14 @@
 
     <form>
         <div class = 'left_box'>
-            <div class="input-group input-group-lg" id="titlebox">
-                <input type="text" id="title" name="title" placeholder="title">
-            </div>
-            <div class="input-group input-group-lg" id="contentbox"></div>
-                <input type="text" id="content" name="content" placeholder="content">
-            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="title" placeholder="TITLE" >
+                <label for="title">TITLE</label>
+              </div>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="CONTENT" id="content"></textarea>
+                <label for="content">CONTENT</label>
+              </div>
             <button class="btn btn-outline-dark" type="button" onclick=create_article()>저장</button>
         </div>
     </form>
