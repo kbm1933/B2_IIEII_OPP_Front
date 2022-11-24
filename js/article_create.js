@@ -1,5 +1,5 @@
 window.onload = () => {
-    load_article();
+    setTimeout(() => load_article(), 2000)
 }
 
 async function load_article(){

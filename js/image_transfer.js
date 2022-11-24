@@ -91,6 +91,5 @@ async function handleuploadimg(){
         method: 'POST',
         body: formdata
     }
-    )
-    window.location.replace('article_create.html')
+    ).then(window.location.replace('article_create.html'))
 }
