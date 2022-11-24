@@ -43,4 +43,5 @@ async function create_article(){
             "img":response_json.id
         })
     })
+    window.location.replace('main.html')
 }

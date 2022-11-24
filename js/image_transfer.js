@@ -92,4 +92,5 @@ async function handleuploadimg(){
         body: formdata
     }
     )
+    window.location.replace('article_create.html')
 }
