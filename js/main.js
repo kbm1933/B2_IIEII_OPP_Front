@@ -1,8 +1,16 @@
+const payload = localStorage.getItem('payload')
+const personObj = JSON.parse(payload)
+const userId = personObj['user_id']
+
 window.onload = () => {
     load_main();
 }
 
 async function load_main(){
+    const payload = localStorage.getItem('payload')
+    const personObj = JSON.parse(payload)
+    const userId = personObj['user_id']
+
     const response = await fetch ('http://127.0.0.1:8000/articles/',{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
@@ -19,8 +27,15 @@ async function load_main(){
     }
 
     const img_box = document.getElementById('img_box')
+    
     response_json.forEach(element => {
+        
+        const main_img = document.createElement('div')
+        main_img.style.display = 'flex'
+        main_img.style.flexDirection = 'column'
+        
         const img_tag = document.createElement('a')
+
         img_tag.href = '/html/article_detail.html'
         img_tag.onclick = function() {
             localStorage.setItem("article_id", element.id)
@@ -39,8 +54,62 @@ async function load_main(){
             article_img.src = `http://127.0.0.1:8000${element.img.output_image}`
         }
 
+        const dislike_img = 'https://cdn-icons-png.flaticon.com/512/3669/3669713.png'
+        const like_img = 'https://cdn-icons-png.flaticon.com/512/3670/3670159.png'
+        
+        const like = document.createElement('img') //좋아요버튼 이미지
+        like.style.width = '30px'
+        like.classList.add('likes')
+
+        if(element.likes.includes(userId)){
+            like.src = like_img
+        } else {
+            like.src = dislike_img
+            
+        }
+        
+        const like_count = document.createElement('p')
+        like_count.innerText = 'likes' + element.likes_count
+
+        const like_btn = document.createElement('button')
+        like_btn.style.backgroundColor = 'transparent'
+        like_btn.style.border = '0'
+        like_btn.onclick = async function() {
+            if(document.querySelector('.likes').classList.contains('likes')){
+            const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
+                headers : {
+                    'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+                },
+                method : 'POST',
+                body:{}
+            })
+                like.src = dislike_img
+                like.classList.toggle('likes')
+                console.log('like',like.classList)
+                window.location.reload()
+            }
+            else{
+                const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
+                    headers : {
+                        'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+                    },
+                    method : 'POST',
+                    body:{}
+                })
+                    like.src = like_img
+                    like.classList.toggle('likes')
+                    console.log('dis',like.classList)
+                    window.location.reload()
+                }
+            
+        }
+
         img_tag.appendChild(article_img)
-        img_box.appendChild(img_tag)
+        main_img.appendChild(img_tag)
+        like_btn.appendChild(like)
+        like_btn.appendChild(like_count)
+        main_img.appendChild(like_btn)
+        img_box.appendChild(main_img)
 
     })    
 
