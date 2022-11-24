@@ -1,0 +1,27 @@
+.main_btn_box{
+    display: flex;
+    justify-content: right;
+    flex-direction: row;  
+    margin-top: 50px;
+    margin-right: 50px;
+}
+.wrap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#detail_img {
+    border-radius: 15%;
+    width: 400px;
+    height: 400px;
+    margin-right: 20px;
+}
+
+.card{
+    width : 300px;
+    height: 200px;
+
+}
