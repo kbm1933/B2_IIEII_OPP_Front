@@ -59,7 +59,6 @@ async function load_main(){
         
         const like = document.createElement('img') //좋아요버튼 이미지
         like.style.width = '30px'
-        like.classList.add('likes')
 
         if(element.likes.includes(userId)){
             like.src = like_img
@@ -74,8 +73,9 @@ async function load_main(){
         const like_btn = document.createElement('button')
         like_btn.style.backgroundColor = 'transparent'
         like_btn.style.border = '0'
+
         like_btn.onclick = async function() {
-            if(document.querySelector('.likes').classList.contains('likes')){
+            if( like.src == like_img){
             const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
                 headers : {
                     'Authorization' : 'Bearer ' + localStorage.getItem('access'),
@@ -84,9 +84,7 @@ async function load_main(){
                 body:{}
             })
                 like.src = dislike_img
-                like.classList.toggle('likes')
-                console.log('like',like.classList)
-                window.location.reload()
+                location.reload()
             }
             else{
                 const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
@@ -97,9 +95,7 @@ async function load_main(){
                     body:{}
                 })
                     like.src = like_img
-                    like.classList.toggle('likes')
-                    console.log('dis',like.classList)
-                    window.location.reload()
+                    location.reload()
                 }
             
         }
