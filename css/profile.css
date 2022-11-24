@@ -9,11 +9,19 @@
 
 .profile {
     margin-top: 200px;
-    width: 150px;
-    height: 150px; 
-    border-radius: 70%;
+    width: 300px;
+    height: 300px; 
+    border-radius: 30%;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
 }
+
+.user_profile_img{
+    width: 300px;
+    height: 300px; 
+}
+
 
 .profile_detail_btn{
     margin-top: 250px;
@@ -38,15 +46,33 @@
 
 .username{
     align-items: center;
-    margin-left: 60px;
+    margin-left: 135px;
 }
 
 .profile_btn{
     margin-top: 20px;
-    margin-left: 12px;
+    margin-left: 25px;
+}
+
+.profile_btn>button{
+    width: 250px;
+}
+
+.painting_btn>button{
+    width: 250px;
 }
 
 .painting_btn{
     margin-top: 20px;
-    margin-left: 12px;
+    margin-left: 25px;
+}
+
+#img_box {
+    width: 1200px;
+    margin : 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }

@@ -1,0 +1,25 @@
+/* .wrap {
+
+    display: flex;
+    align-items: center;
+    justify-items: center;  
+} */
+
+#img_box {
+    
+    width: 1200px;
+    margin : 100px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.op_btn_box{
+    display: flex;
+    justify-content: right;
+    flex-direction: row;  
+    margin-top: 50px;
+    margin-right: 50px;
+}
