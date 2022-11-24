@@ -1,5 +1,5 @@
 window.onload = () => {
-    load_article();
+    setTimeout(() => load_article(), 2000)
 }
 
 async function load_article(){
@@ -43,4 +43,5 @@ async function create_article(){
             "img":response_json.id
         })
     })
+    window.location.replace('main.html')
 }

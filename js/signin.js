@@ -7,7 +7,7 @@ window.onload = async function signincheck(){
         headers : {
             Authorization : localStorage.getItem('access')
         },
-        method:"POST"
+        method:"GET"
     })
     window.location.replace("main.html")
     }
@@ -17,7 +17,7 @@ async function handleSignin(){
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
 
-    const response = await fetch("http://127.0.0.1:8000/users/signin/",{
+    const response = await fetch(`http://127.0.0.1:8000/users/signin/`, {
         headers: {
             'content-type' : 'application/json',
         },
