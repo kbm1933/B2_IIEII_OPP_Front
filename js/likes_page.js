@@ -3,15 +3,15 @@ const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
 
 window.onload = () => {
-    load_main();
+    load_like_page();
 }
 
-async function load_main(){
+async function load_like_page(){
     const payload = localStorage.getItem('payload')
     const personObj = JSON.parse(payload)
     const userId = personObj['user_id']
 
-    const response = await fetch ('http://127.0.0.1:8000/articles/',{
+    const response = await fetch (`http://127.0.0.1:8000/articles/${userId}/likepage/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -20,20 +20,20 @@ async function load_main(){
     })
     response_json = await response.json()
     console.log(response_json)
-   
+
     const op_btn = document.getElementById('op_btn')
     op_btn.onclick = function(){
         window.location.replace('image_transfer.html')
     }
 
     const img_box = document.getElementById('img_box')
-    
+
     response_json.forEach(element => {
-        
+
         const main_img = document.createElement('div')
         main_img.style.display = 'flex'
         main_img.style.flexDirection = 'column'
-        
+
         const img_tag = document.createElement('a')
 
         img_tag.href = '/html/article_detail.html'
@@ -56,7 +56,7 @@ async function load_main(){
 
         const dislike_img = 'https://cdn-icons-png.flaticon.com/512/3669/3669713.png'
         const like_img = 'https://cdn-icons-png.flaticon.com/512/3670/3670159.png'
-        
+
         const like = document.createElement('img') //좋아요버튼 이미지
         like.style.width = '30px'
 
@@ -64,18 +64,17 @@ async function load_main(){
             like.src = like_img
         } else {
             like.src = dislike_img
-            
+
         }
-        
+
         const like_count = document.createElement('p')
         like_count.innerText = 'likes' + element.likes_count
 
         const like_btn = document.createElement('button')
         like_btn.style.backgroundColor = 'transparent'
         like_btn.style.border = '0'
-
         like_btn.onclick = async function() {
-            if( like.src == like_img){
+            if(like.src === like_img){
             const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
                 headers : {
                     'Authorization' : 'Bearer ' + localStorage.getItem('access'),
@@ -97,7 +96,7 @@ async function load_main(){
                     like.src = like_img
                     location.reload()
                 }
-            
+
         }
 
         img_tag.appendChild(article_img)
@@ -110,12 +109,4 @@ async function load_main(){
     })    
 
 
-}
-
-
-
-
-function handleLogout(){
-    localStorage.clear()
-    window.location.replace("signin.html")
 }

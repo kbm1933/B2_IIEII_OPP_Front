@@ -13,3 +13,15 @@
     margin-bottom: 20px;
 
 }
+
+.left_box>button{
+    margin-top: 20px;
+}
+
+#title{
+    width: 300px;
+}
+
+#content{
+    height: 200px;
+}
