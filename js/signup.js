@@ -50,3 +50,10 @@ async function handleSignup(){
         window.location.reload()
     }
 }
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
+}
+

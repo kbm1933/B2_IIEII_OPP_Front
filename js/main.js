@@ -115,3 +115,11 @@ async function load_main(){
 
 
 }
+
+
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
+}
