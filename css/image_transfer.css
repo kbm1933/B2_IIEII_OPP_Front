@@ -2,7 +2,8 @@
     border: 1px solid lightgray;
     border-radius: 3px;
     padding: 0 10px 0 10px;
-    height: 300px;
+    height: 350px;
+    width: 500px;
     background: lightgray;
 }
 
@@ -13,12 +14,32 @@
     background: lightgray;
 }
 
+.checked-Img-box {
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    padding: 0 10px 0 10px;
+    height: 350px;
+    width: 500px;
+    background: lightgray;
+}
+
+.checked-Img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: lightgray;
+}
+
 .write-box{
-    margin-top: 50px;
+    margin: 50px 0 0 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
+}
+
+.select-dnn-box{
+    padding: 0 20px 0 20px;
 }
 
 .pagetitle{
