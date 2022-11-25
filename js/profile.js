@@ -16,7 +16,6 @@ async function loaduseruploadimg(){
     const response = await fetch (`http://127.0.0.1:8000/users/${userId}/profile/`, {method:"GET"})
 
     response_json = await response.json()
-    console.log(response_json)
 
     // 로딩시 user 이름 가져오기
     const payload = localStorage.getItem("payload");
@@ -26,7 +25,6 @@ async function loaduseruploadimg(){
     user_name.innerText = payload_parse.username
 
     const user_profile_img = response_json['profile_img']
-    console.log(user_profile_img)
 
     const img = document.getElementById('user_profile_img')
     img.setAttribute('src', `http://127.0.0.1:8000${user_profile_img}`)
@@ -68,8 +66,7 @@ async function oilpaintingimglist(){
     })
 
     response_json = await response.json()
-    // const article_user_id = response_json['article_set'][0]['article_user']
-    console.log(response_json)
+
 
     // user와 같은 id값을 가진 게시글만 가져올 수 있게 걸러주는 함수
     var my_articles = new Array
@@ -78,7 +75,6 @@ async function oilpaintingimglist(){
             my_articles.push(element)
         }
     })
-    console.log(my_articles)
     
 
     const img_box = document.getElementById('img_box')
@@ -109,16 +105,7 @@ async function oilpaintingimglist(){
 }
 
 
-
-
-
-
-
-
-
-
 // basetool을 위한 로그아웃 기능
-
 function handleSignout(){
     const response = fetch ('http://127.0.0.1:8000/users/signout/',{
         headers : {
@@ -132,6 +119,7 @@ function handleSignout(){
 }
 
 
+// 팔로우
 async function load_follow_list(){
     const payload = localStorage.getItem('payload')
     const personObj = JSON.parse(payload)
