@@ -177,6 +177,10 @@ async function load_follow_list(){
         follow.innerText = element.follower + ' follower  ' + element.following + ' following'
         const hr = document.createElement('hr')
 
+        const pro_img = document.createElement('img')
+        pro_img.src = `http://127.0.0.1:8000${element.profile_img}`
+        pro_img.style.width = '50px';
+        pro_img.style.height = '50px';
         
         // 팔로우 버튼
         const follow_btn = document.createElement('button')
@@ -202,6 +206,7 @@ async function load_follow_list(){
             window.location.reload()
         }
         
+        follow_box.append(pro_img)
         follow_box.append(username)
         follow_box.append(follow)
         follow_box.append(follow_btn)
