@@ -25,7 +25,31 @@
     height: 200px;
 
 }
+
 .btns {
-    margin-bottom: 20px;
-    
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;   
+}
+
+.btns > button {
+margin: 0px 5px;
+}
+#comment {
+  width: 700px;
+  margin: 20px auto;
+}
+
+#comment_box > button {
+  margin: 15px 0px;
+  float: right;
+}
+
+#comment_list > input {
+  margin-top: 10px;
+}
+
+#like_btn{
+  background-color : transparent;
+  border : 0;
 }

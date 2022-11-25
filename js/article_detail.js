@@ -1,8 +1,13 @@
+
 window.onload = () => {
     load_detail();
 }
 
 const articleId = localStorage.getItem('article_id')
+const payload = localStorage.getItem('payload')
+const personObj = JSON.parse(payload)
+const userId = personObj['user_id']
+
 async function load_detail(){
 
     const response = await fetch (`http://127.0.0.1:8000/articles/${articleId}/detail/`,{
@@ -21,7 +26,6 @@ async function load_detail(){
     const content = document.getElementById('detail_content')
     content.innerText = response_json.content
 
-    // 이름으로 변경해야함
     const user = document.getElementById('username')
     user.innerText = '작성자 : ' + response_json.article_user
 
@@ -33,6 +37,49 @@ async function load_detail(){
     img.onmouseout = function() { 
         img.src = `http://127.0.0.1:8000${response_json.img.output_image}`
     } 
+
+    const like = document.getElementById('btn_img')
+
+    const dislike_img = 'https://cdn-icons-png.flaticon.com/512/3669/3669713.png'
+    const like_img = 'https://cdn-icons-png.flaticon.com/512/3670/3670159.png'
+
+    if(response_json.likes.includes(userId)){
+        like.src = like_img
+    } else {
+        like.src = dislike_img
+
+    }
+        
+    const like_count = document.getElementById('like_cnt')
+    like_count.innerText = 'likes' + response_json.likes_count
+
+    like_btn.onclick = async function() {
+        
+        const response = await fetch(`http://127.0.0.1:8000/articles/${response_json.id}/likes/`,{
+            headers : {
+                'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            },
+            method : 'POST',
+            body:{}
+        })
+            if(like.src == dislike_img){
+                like.src = like_img
+            } else {
+                like.src = dislike_img
+            }
+            location.reload()
+    }
+
+    
+    const comment_list = document.getElementById('comment_list')
+    let output = ''
+
+    response_json.comment_set.reverse().forEach(element => {
+        output += `
+        <input class="form-control" type="text" value="${element.content}           -${element.article_user}" readonly>
+        `
+    })
+    comment_list.innerHTML = output
 }
 
 async function handleDelete(){
@@ -50,13 +97,7 @@ async function handleDelete(){
 }
 
 async function handleAddItem(){
-    const itemInput = document.getElementById('comment').value
-    const content = itemInput
-    const newList = document.createElement('li')
-    newList.innerText = content
-
-    const commentList = document.getElementById('comment-list')
-    commentList.append(newList)
+    const itemInput = document.getElementById('input_comment').value
 
     const response = await fetch(`http://127.0.0.1:8000/articles/${articleId}/comment/`,{
         headers : {
@@ -68,7 +109,9 @@ async function handleAddItem(){
             "content":itemInput
         })
     })
+    window.location.reload()
 }
+
 function handleLogout(){
     localStorage.clear()
     window.location.replace("signin.html")
