@@ -17,8 +17,6 @@ async function loaduseruploadimg(){
 
     response_json = await response.json()
     console.log(response_json)
-    const article_user_id = response_json['article_set'][0]['article_user']
-    console.log(article_user_id)
 
     // 로딩시 user 이름 가져오기
     const payload = localStorage.getItem("payload");

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signUp</title>
-    <link rel="stylesheet" type="text/css" href="../css/signup.css">
+    <link rel="stylesheet" type="text/css" href="signintest.css">
 </head>
 
 <body>
@@ -17,15 +17,20 @@
 
           <span>Make your account</span>
           <input type="username" class="form-control" name="username" id="username" placeholder="username" />
-          <input type="password" class="form-control" name="password" id="password" placeholder="password" />
-          <input type="password" class="form-control" name="password1" id="password1" placeholder="password check" />
+          <input type="password" class="form-control" name="password" id="password" placeholder="password" / >
+          <input type="password" class="form-control" name="password1" id="password1" placeholder="password check" / >
           <button type="button" class="form_btn" onclick="handleSignup()">Make Account</button>
         </form>
       </div>
       <div class="overlay-container">
+        <div class="overlay-left">
+          <h1>Welcome Back</h1>
+          <p>To keep connected with us please login with your personal info</p>
+        </div>
         <div class="overlay-right">
           <h1>Welcom, IIEII</h1>
-          <button id="signUp" class="overlay_btn" onclick="location.href='signin.html'" >Login</button>
+          <p>Enter your personal details and start journey with us</p>
+          <button id="signUp" class="overlay_btn" onclick="location.href='html/signin.html'" >Login</button>
         </div>
       </div>
     </div>
