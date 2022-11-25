@@ -97,7 +97,7 @@ async function handleuploadimg(){
 
 
 
-function handleSignout(){
+function handleLogout(){
     const response = fetch ('http://127.0.0.1:8000/users/signout/',{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),

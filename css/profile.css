@@ -14,7 +14,7 @@ li a {
     text-decoration: none;
   }
   
-  .user_upload_img {
+.user_upload_img {
     border : 1px solid gray;
     font-size: 20px;
     width: 400px;
@@ -91,6 +91,7 @@ li a {
     flex-direction: row;
     flex-wrap: wrap;
 }
+
 
 .row {
     margin-top: 100px;
