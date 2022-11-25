@@ -1,3 +1,18 @@
+.navbar-brand{
+    margin: 0px 20px;
+}
+
+li {
+    float:left;
+  }
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
 .preview-Img-box {
     border: 1px solid lightgray;
     border-radius: 3px;

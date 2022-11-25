@@ -8,25 +8,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Oil Painting</title>
+    <title>like page</title>
     <link rel="stylesheet" href="../css/likes_page.css">
 </head>
 <body>
     <div class="basetool">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="main.html">IIEII OPP</a>
-                <form class="form-inline my-2 my-lg-0">
-                    <button type="button" class="btn btn-outline-dark" id = 'profile_page' onclick="location.href='profile.html'">프로필</button>
-                    <button type="button" class="btn btn-outline-dark" id = 'sign_out' onclick="handleSignout()" >로그아웃</button>
-                </form>
+        <nav class="navbar navbar-dark bg-dark" id = 'navbar'>
+            <a class="navbar-brand" href="main.html">IIEII OPP</a>
+            <div class = 'nav-item'>
+                <ul>
+                    <li><a href="image_transfer.html">유화 만들기</a></li>
+                    <li><a href="likes_page.html">내가 좋아요한 게시글</a></li>
+                    <li><a href="profile.html">프로필</a></li>
+                    <li><a href="javascript:handleSignout();">로그아웃</a></li>
+                </ul>
             </div>
         </nav>
     </div>
     <div class = 'wrap'>
-        <div class = 'op_btn_box'>
-            <button type="button" class="btn btn-outline-dark" id = 'op_btn'>유화 만들기</button>
-        </div>
         <div id = img_box>
             <!-- <div id = main_img></div> -->
         </div>
