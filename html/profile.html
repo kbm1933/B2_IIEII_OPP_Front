@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="/css/profile.css">
-    <script src="/js/profile.js"></script>
+
 </head>
 <body>
     <div class="basetool">
@@ -33,7 +33,7 @@
                 <div class="profile" style="background: #BDBDBD;">
                     <img class="user_profile_img" id="user_profile_img">
                 </div>
-                <div class="username" id="user_name"></div>
+                <h3 class="username" id="user_name"></h3>
                 <div class="profile_btn">
                     <button type="button" class="btn btn-outline-dark" onclick="location.href='profile_detail.html'">프로필 수정하기</button>
                 </div>
@@ -44,14 +44,15 @@
                     <button type="button" class="btn btn-outline-dark" onclick="oilpaintingimglist()">내가 업로드한 이미지 보기</button>
                 </div>
             </div>
-
-
-            <div class="oilpainting" id="oilpainting">
-                <!-- 이미지 불러오는 함수 필요 -->
-                <div id = img_box></div>
-            </div>
-           
         </div>
+        <div class="row2" id="follow-box">
+        </div>       
     </div>
+    <div class="oilpainting" id="oilpainting">
+        <!-- 이미지 불러오는 함수 필요 -->
+        <div id = img_box></div>
+    </div>
+
+    <script src="/js/profile.js"></script>
 </body>
 </html>
