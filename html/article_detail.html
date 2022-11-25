@@ -22,7 +22,7 @@
                     <li><a href="image_transfer.html">유화 만들기</a></li>
                     <li><a href="likes_page.html">내가 좋아요한 게시글</a></li>
                     <li><a href="profile.html">프로필</a></li>
-                    <li><a href="javascript:handleSignout();">로그아웃</a></li>
+                    <li><a href="javascript:handleLogout();">로그아웃</a></li>
                 </ul>
             </div>
         </nav>
@@ -34,8 +34,8 @@
         <div class = 'btns'>
             <button id = 'like_btn'><img id = 'btn_img' src='https://cdn-icons-png.flaticon.com/512/3669/3669713.png' style="width: 30px;"></button>
             <p id = 'like_cnt'>likes</p>
-            <button type="button" class="btn btn-outline-dark" onclick="location.href='edit_article.html'">edit</button>
-            <button type="button" class="btn btn-outline-dark" onclick="handleDelete()">delete</button>
+            <button type="button" class="btn btn-outline-dark" id = 'edit_btn' onclick="location.href='edit_article.html'">edit</button>
+            <button type="button" class="btn btn-outline-dark" id = 'del_btn' onclick="handleDelete()">delete</button>
         </div>
 
    
