@@ -13,7 +13,9 @@ async function handleSignup(){
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
     const password2 = document.getElementById("password2").value
+
     console.log(username, password)
+
 
     if (password_valid(password, password2)) {
         const response = await fetch('http://127.0.0.1:8000/users/signup/', {
@@ -38,7 +40,9 @@ async function handleSignup(){
 async function handleLogin(){
     const username = document.getElementById("username").value
     const password = document.getElementById("password").value
+
     console.log(username, password)
+
 
     const response = await fetch("http://127.0.0.1:8000/users/api/token/",{
         headers: {
@@ -66,11 +70,13 @@ async function handleLogin(){
     }).join(''));
     
     localStorage.setItem('payload', jsonPayload);
-    window.location.replace("profile.html")
+
+    window.location.replace("image_transfer.html")
+
 }
 
 
 function handleLogout(){
     localStorage.clear()
-    window.location.replace("login.html")
+    window.location.replace("signin.html")
 }

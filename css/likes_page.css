@@ -1,12 +1,5 @@
-/* .wrap {
-
-    display: flex;
-    align-items: center;
-    justify-items: center;  
-} */
-
 #img_box {
-    
+
     width: 1200px;
     margin : 100px auto;
     display: flex;

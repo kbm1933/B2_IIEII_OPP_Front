@@ -2,9 +2,9 @@ window.onload = () => {
     load_detail();
 }
 
+const articleId = localStorage.getItem('article_id')
 async function load_detail(){
 
-    const articleId = localStorage.getItem('article_id')
     const response = await fetch (`http://127.0.0.1:8000/articles/${articleId}/detail/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
@@ -23,7 +23,7 @@ async function load_detail(){
 
     // 이름으로 변경해야함
     const user = document.getElementById('username')
-    user.innerText = response_json.article_user
+    user.innerText = '작성자 : ' + response_json.article_user
 
     const img = document.getElementById('detail_img')
     img.src = `http://127.0.0.1:8000${response_json.img.output_image}`
@@ -32,12 +32,22 @@ async function load_detail(){
     }
     img.onmouseout = function() { 
         img.src = `http://127.0.0.1:8000${response_json.img.output_image}`
-    }
-    
-    
+    } 
 }
 
+async function handleDelete(){
 
+    const response = await fetch(`http://127.0.0.1:8000/articles/${articleId}/detail/`, {
+        headers : {
+            'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            'content-type' : 'application/json',
+        },    
+        method : 'DELETE',
+        body : {}
+    })
+    window.location.replace('main.html')
+    
+}
 
 function handleLogout(){
     localStorage.clear()

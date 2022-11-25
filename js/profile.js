@@ -63,7 +63,7 @@ async function oilpaintingimglist(){
     console.log(response_json)
 
     const img_box = document.getElementById('img_box')
-    response_json.filter(element => {
+    response_json.forEach(element => {
         const img_tag = document.createElement('a')
         img_tag.href = '/html/article_detail.html'
         img_tag.onclick = function() {
