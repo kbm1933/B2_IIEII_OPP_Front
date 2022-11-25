@@ -11,6 +11,8 @@ window.onload = async function loaduseruploadimg(){
 
     response_json = await response.json()
     console.log(response_json)
+    const article_user_id = response_json['article_set'][0]['article_user']
+    console.log(article_user_id)
 
     // 로딩시 user 이름 가져오기
     const payload = localStorage.getItem("payload");
@@ -47,9 +49,11 @@ async function userProfileUpload(){
 }
 
 
-
-// 이건 전체 이미지 (main과 동일)
+// user와 같은 id값을 가진 게시글만 가져오기
 async function oilpaintingimglist(){
+    const payload = localStorage.getItem('payload')
+    const personObj = JSON.parse(payload)
+    const userId = personObj['user_id']
 
     const response = await fetch ('http://127.0.0.1:8000/articles/',{
         headers : {
@@ -60,10 +64,21 @@ async function oilpaintingimglist(){
     })
 
     response_json = await response.json()
+    // const article_user_id = response_json['article_set'][0]['article_user']
     console.log(response_json)
 
-    const img_box = document.getElementById('img_box')
+    // user와 같은 id값을 가진 게시글만 가져올 수 있게 걸러주는 함수
+    var my_articles = new Array
     response_json.forEach(element => {
+        if (element.article_user == userId){
+            my_articles.push(element)
+        }
+    })
+    console.log(my_articles)
+    
+
+    const img_box = document.getElementById('img_box')
+    my_articles.forEach(element => {
         const img_tag = document.createElement('a')
         img_tag.href = '/html/article_detail.html'
         img_tag.onclick = function() {
@@ -87,13 +102,27 @@ async function oilpaintingimglist(){
         img_box.appendChild(img_tag)
 
     })    
-
 }
 
 
 
+
+
+
+
+
+
+
 // basetool을 위한 로그아웃 기능
-function handleLogout(){
+
+function handleSignout(){
+    const response = fetch ('http://127.0.0.1:8000/users/signout/',{
+        headers : {
+            'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            'content-type' : 'application/json',
+        },
+        method : 'POST',
+    })
     localStorage.clear()
     window.location.replace("signin.html")
 }
