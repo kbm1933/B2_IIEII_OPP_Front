@@ -49,6 +49,26 @@ async function handleDelete(){
     
 }
 
+async function handleAddItem(){
+    const itemInput = document.getElementById('comment').value
+    const content = itemInput
+    const newList = document.createElement('li')
+    newList.innerText = content
+
+    const commentList = document.getElementById('comment-list')
+    commentList.append(newList)
+
+    const response = await fetch(`http://127.0.0.1:8000/articles/${articleId}/comment/`,{
+        headers : {
+            'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            'content-type' : 'application/json',
+        },
+        method : 'POST',
+        body : JSON.stringify({
+            "content":itemInput
+        })
+    })
+}
 function handleLogout(){
     localStorage.clear()
     window.location.replace("signin.html")

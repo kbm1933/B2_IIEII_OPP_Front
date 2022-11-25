@@ -1,0 +1,23 @@
+.aside{
+    background-color: yellowgreen;
+    float: right;
+    text-emphasis: center;
+}
+
+.follow-box{
+    width : 220px;
+    margin: auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+.follow{
+    margin : auto;
+    width : 200px;
+}
+

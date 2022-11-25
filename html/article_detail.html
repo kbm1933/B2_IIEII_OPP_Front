@@ -26,7 +26,7 @@
             <button type="button" class="btn btn-outline-dark" onclick="location.href='edit_article.html'">edit</button>
             <button type="button" class="btn btn-outline-dark" onclick="handleDelete()">delete</button>
         </div>
-
+    
    
         <div class="card">
             <div class="card-header" id = 'detail_title'>
@@ -39,7 +39,18 @@
               </blockquote>
             </div>
           </div>
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="comment"></textarea>                
+                <label for="floatingTextarea">Comments</label>
+                
+                <button type="button" class="btn btn-outline-dark" onclick="handleAddItem()" >write</button>
+            </div>
+            <ul id="comment-list">
+                   <li class="list-item"></li>
+            </ul>
         </div>
+        
+        
 </div>            
                
     <script src="../js/article_detail.js"></script>

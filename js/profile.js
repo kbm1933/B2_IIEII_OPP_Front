@@ -93,7 +93,15 @@ async function oilpaintingimglist(){
 
 
 // basetool을 위한 로그아웃 기능
-function handleLogout(){
+
+function handleSignout(){
+    const response = fetch ('http://127.0.0.1:8000/users/signout/',{
+        headers : {
+            'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            'content-type' : 'application/json',
+        },
+        method : 'POST',
+    })
     localStorage.clear()
     window.location.replace("signin.html")
 }
