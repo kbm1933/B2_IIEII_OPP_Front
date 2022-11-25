@@ -29,21 +29,18 @@
         </nav>
     </div>
     
-    <h1> profile_detail </h1>
     <div class="profile_detail_container">
         <div class="row">
-
-            <div class="profile" style="background: #BDBDBD;">
+            <div class="profile" >
                 <img class="user_profile_img" id="user_profile_img">
             </div>
-            <div class="username" id="user_name"></div>
+            <h3 class="username" id="user_name"></h3>
 
         </div>
 
         <div class="row">
             <div class="profile_detail_btn">
                 <h5>프로필 이미지 업로드</h5>
-                <!-- <input type="file" class="btn btn-outline-dark"  id="profileinputImage"> -->
                 <input class="form-control" type="file" id="file" accept="image/*">
                 <div class="profile_detail_finish">
                     <button type="button" class="btn btn-outline-dark" id="profilesendButton" onclick="userProfileUpload()"> 프로필 이미지 저장하기 </button>
