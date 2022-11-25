@@ -1,17 +1,16 @@
+window.onload = async function signincheck(){
+    const payload = localStorage.getItem('payload')
 
-// window.onload = async function signincheck(){
-//     const payload = localStorage.getItem('payload')
-
-//     if (payload){
-//     const response = await fetch (`http://127.0.0.1:8000/users/signin/`, {
-//         headers : {
-//             Authorization : localStorage.getItem('access')
-//         },
-//         method:"GET"
-//     })
-//     window.location.replace("main.html")
-//     }
-// } 
+    if (payload){
+    const response = await fetch (`http://127.0.0.1:8000/users/signin/`, {
+        headers : {
+            Authorization : localStorage.getItem('access')
+        },
+        method:"GET"
+    })
+    window.location.replace("main.html")
+    }
+} 
 
 
 // 회원가입때 쓰일 함수

@@ -53,3 +53,9 @@ async function edit_article(){
     })
     window.location.replace('article_detail.html')
 }
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
+}

@@ -107,7 +107,7 @@ async function load_like_page(){
 }
 
 
-function handleSignout(){
+function handleLogout(){
     const response = fetch ('http://127.0.0.1:8000/users/signout/',{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
@@ -118,3 +118,4 @@ function handleSignout(){
     localStorage.clear()
     window.location.replace("signin.html")
 }
+

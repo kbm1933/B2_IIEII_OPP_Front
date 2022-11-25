@@ -200,3 +200,9 @@ async function load_follow_list(){
         
     })
 }
+
+
+function handleLogout(){
+    localStorage.clear()
+    window.location.replace("signin.html")
+}
