@@ -19,8 +19,10 @@ async function load_edit(){
     const img = document.createElement('img')
     img.src = `http://127.0.0.1:8000${response_json.img.output_image}` 
     img.style.display = 'flex';
-    img.style.width = '300px';
+    img.style.width = '400px';
+    img.style.height = '400px'
     img.style.margin = '20px';
+    img.style.borderRadius='15%'
 
     const img_div = document.getElementById('output_img_tag')
     img_div.appendChild(img)

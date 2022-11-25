@@ -1,17 +1,30 @@
-.page_title{
-    text-align: center;
-    margin : 20px 0px;
+navbar-brand{
+  margin: 0px 20px;
 }
+
+li {
+  float:left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 .wrap {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
 }
 
 .left_box {
-    margin-bottom: 20px;
-
+  margin-top : 20px;
+  margin-bottom: 20px;
 }
 
 .left_box>button{

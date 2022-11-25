@@ -21,11 +21,6 @@ async function load_like_page(){
     response_json = await response.json()
     console.log(response_json)
 
-    const op_btn = document.getElementById('op_btn')
-    op_btn.onclick = function(){
-        window.location.replace('image_transfer.html')
-    }
-
     const img_box = document.getElementById('img_box')
 
     response_json.forEach(element => {
