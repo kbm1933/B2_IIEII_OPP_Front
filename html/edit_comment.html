@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>edit comment</title>
+    <script src="../js/edit_comment.js"></script>
+    <link rel="stylesheet" href="../css/article_create.css">
+</head>
+<body>
+    <div class="basetool">
+        <nav class="navbar navbar-dark bg-dark" id = 'navbar'>
+            <a class="navbar-brand" href="main.html">IIEII OPP</a>
+            <div class = 'nav-item'>
+                <ul>
+                    <li><a href="image_transfer.html">유화 만들기</a></li>
+                    <li><a href="likes_page.html">내가 좋아요한 게시글</a></li>
+                    <li><a href="profile.html">프로필</a></li>
+                    <li><a href="javascript:handleLogout();">로그아웃</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+<div class = 'wrap'>
+    <div class = 'right_box'>
+        <div id = 'output_img_tag'></div>
+    </div>
+
+    <form>        
+        <div id = 'comment'>
+            <div class="form-floating mb-3" id = 'comment_box'>
+                <input type="text" class="form-control" id="input_comment" placeholder="COMMENT" >
+                <label for="input_comment">COMMENT를 입력해주세요</label>
+                <button type="button" class="btn btn-outline-dark" onclick="handleEditComment()">write</button>                
+        </div>  
+    </form>
+</div>
+</body>
+</html>
