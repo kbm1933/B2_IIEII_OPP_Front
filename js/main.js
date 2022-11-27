@@ -1,3 +1,4 @@
+const main_url = "http://127.0.0.1:8000"
 const payload = localStorage.getItem('payload')
 const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
@@ -11,7 +12,7 @@ async function load_main(){
     const personObj = JSON.parse(payload)
     const userId = personObj['user_id']
 
-    const response = await fetch ('http://127.0.0.1:8000/articles/',{
+    const response = await fetch (`${main_url}/articles/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -37,16 +38,16 @@ async function load_main(){
         }
 
         const article_img = document.createElement('img')
-        article_img.src = `http://127.0.0.1:8000${element.img.output_image}`
+        article_img.src = `${main_url}${element.img.output_image}`
         article_img.style.width = '250px';
         article_img.style.height = '250px';
         article_img.style.margin = '10px 15px';
         article_img.style.borderRadius = '15%'
         article_img.onmouseover = function() { 
-            article_img.src = `http://127.0.0.1:8000${element.img.input_image}`
+            article_img.src = `${main_url}${element.img.input_image}`
         }
         article_img.onmouseout = function() { 
-            article_img.src = `http://127.0.0.1:8000${element.img.output_image}`
+            article_img.src = `${main_url}${element.img.output_image}`
         }
 
         const dislike_img = 'https://cdn-icons-png.flaticon.com/512/3669/3669713.png'
@@ -71,7 +72,7 @@ async function load_main(){
 
         like_btn.onclick = async function() {
             if( like.src == like_img){
-            const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
+            const response = await fetch(`${main_url}/articles/${element.id}/likes/`,{
                 headers : {
                     'Authorization' : 'Bearer ' + localStorage.getItem('access'),
                 },
@@ -82,7 +83,7 @@ async function load_main(){
                 location.reload()
             }
             else{
-                const response = await fetch(`http://127.0.0.1:8000/articles/${element.id}/likes/`,{
+                const response = await fetch(`${main_url}/articles/${element.id}/likes/`,{
                     headers : {
                         'Authorization' : 'Bearer ' + localStorage.getItem('access'),
                     },
@@ -109,7 +110,7 @@ async function load_main(){
 
 
 function handleLogout(){
-    const response = fetch ('http://127.0.0.1:8000/users/signout/',{
+    const response = fetch (`${main_url}/users/signout/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',

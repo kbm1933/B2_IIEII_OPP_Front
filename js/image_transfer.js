@@ -1,3 +1,4 @@
+const main_url = "http://127.0.0.1:8000"
 const payload = localStorage.getItem('payload')
 const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
@@ -85,7 +86,7 @@ async function handleuploadimg(){
     formdata.append('input_image',img.files[0])
     formdata.append('number', dnn_num)
 
-    const response = await fetch('http://127.0.0.1:8000/articles/imgtoop/', {
+    const response = await fetch(`${main_url}/articles/imgtoop/`, {
         headers: { 
             'Authorization': 'Bearer '+ localStorage.getItem('access')
         },
@@ -98,7 +99,7 @@ async function handleuploadimg(){
 
 
 function handleLogout(){
-    const response = fetch ('http://127.0.0.1:8000/users/signout/',{
+    const response = fetch (`${main_url}/users/signout/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',

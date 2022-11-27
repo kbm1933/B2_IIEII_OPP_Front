@@ -1,3 +1,4 @@
+const main_url = "http://127.0.0.1:8000"
 const payload = localStorage.getItem('payload')
 const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
@@ -11,7 +12,7 @@ async function load_follow_list(){
     const personObj = JSON.parse(payload)
     const userId = personObj['user_id']
 
-    const response = await fetch (`http://127.0.0.1:8000/users/${userId}/follow/`,{
+    const response = await fetch (`${main_url}/users/${userId}/follow/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -50,7 +51,7 @@ async function load_follow_list(){
         const hr = document.createElement('hr')
 
         const pro_img = document.createElement('img')
-        pro_img.src = `http://127.0.0.1:8000${element.profile_img}`
+        pro_img.src = `${main_url}${element.profile_img}`
         pro_img.style.width = '30px';
         pro_img.style.height = '30px';
 
@@ -69,7 +70,7 @@ async function load_follow_list(){
         }
         
         follow_btn.onclick = async function() {
-            const response = await fetch(`http://127.0.0.1:8000/users/${element.id}/follow/`,{
+            const response = await fetch(`${main_url}/users/${element.id}/follow/`,{
                 headers : {
                     'Authorization' : 'Bearer ' + localStorage.getItem('access'),
                 },
