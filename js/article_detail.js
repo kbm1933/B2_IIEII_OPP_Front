@@ -1,3 +1,4 @@
+const main_url = "http://127.0.0.1:8000"
 
 window.onload = () => {
     load_detail();
@@ -10,7 +11,7 @@ const userId = personObj['user_id']
 
 async function load_detail(){
 
-    const response = await fetch (`http://127.0.0.1:8000/articles/${articleId}/detail/`,{
+    const response = await fetch (`${main_url}/articles/${articleId}/detail/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -30,12 +31,12 @@ async function load_detail(){
     user.innerText = '작성자 : ' + response_json.article_user
 
     const img = document.getElementById('detail_img')
-    img.src = `http://127.0.0.1:8000${response_json.img.output_image}`
+    img.src = `${main_url}${response_json.img.output_image}`
     img.onmouseover = function() { 
-        img.src = `http://127.0.0.1:8000${response_json.img.input_image}`
+        img.src = `${main_url}${response_json.img.input_image}`
     }
     img.onmouseout = function() { 
-        img.src = `http://127.0.0.1:8000${response_json.img.output_image}`
+        img.src = `${main_url}${response_json.img.output_image}`
     } 
 
     const like = document.getElementById('btn_img')
@@ -55,7 +56,7 @@ async function load_detail(){
 
     like_btn.onclick = async function() {
         
-        const response = await fetch(`http://127.0.0.1:8000/articles/${response_json.id}/likes/`,{
+        const response = await fetch(`${main_url}/articles/${response_json.id}/likes/`,{
             headers : {
                 'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             },
@@ -84,7 +85,7 @@ async function load_detail(){
 
 async function handleDelete(){
 
-    const response = await fetch(`http://127.0.0.1:8000/articles/${articleId}/detail/`, {
+    const response = await fetch(`${main_url}/articles/${articleId}/detail/`, {
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -99,7 +100,7 @@ async function handleDelete(){
 async function handleAddItem(){
     const itemInput = document.getElementById('input_comment').value
 
-    const response = await fetch(`http://127.0.0.1:8000/articles/${articleId}/comment/`,{
+    const response = await fetch(`${main_url}/articles/${articleId}/comment/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',

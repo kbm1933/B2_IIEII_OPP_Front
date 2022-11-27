@@ -1,9 +1,11 @@
+const main_url = "http://127.0.0.1:8000"
+
 window.onload = () => {
     setTimeout(() => load_article(), 3000)
 }
 
 async function load_article(){
-    const response = await fetch ('http://127.0.0.1:8000/articles/imgtoop/2/',{
+    const response = await fetch (`${main_url}/articles/imgtoop/2/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -15,7 +17,7 @@ async function load_article(){
     console.log(response_json)
 
     const img = document.createElement('img')
-    img.src = `http://127.0.0.1:8000${response_json.output_image}` 
+    img.src = `${main_url}${response_json.output_image}` 
     img.style.display = 'flex';
     img.style.width = '400px';
     img.style.height = '400px'
@@ -33,7 +35,7 @@ async function create_article(){
     const content = document.getElementById('content').value
     console.log(title, content, response_json.id)
 
-    const response = await fetch ('http://127.0.0.1:8000/articles/imgtoop/2/',{
+    const response = await fetch (`${main_url}/articles/imgtoop/2/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -51,7 +53,7 @@ async function create_article(){
 
 
 function handleLogout(){
-    const response = fetch ('http://127.0.0.1:8000/users/signout/',{
+    const response = fetch (`${main_url}/users/signout/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',

@@ -1,3 +1,5 @@
+const main_url = "http://127.0.0.1:8000"
+
 window.onload = () => {
     load_edit()
 }
@@ -5,7 +7,7 @@ window.onload = () => {
 const articleId = localStorage.getItem('article_id')
 async function load_edit(){
 
-    const response = await fetch (`http://127.0.0.1:8000/articles/${articleId}/detail/`,{
+    const response = await fetch (`${main_url}/articles/${articleId}/detail/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -17,7 +19,7 @@ async function load_edit(){
     console.log(response_json)
 
     const img = document.createElement('img')
-    img.src = `http://127.0.0.1:8000${response_json.img.output_image}` 
+    img.src = `${main_url}${response_json.img.output_image}` 
     img.style.display = 'flex';
     img.style.width = '400px';
     img.style.height = '400px'
@@ -38,7 +40,7 @@ async function edit_article(){
     const title = document.getElementById('title').value
     const content = document.getElementById('content').value
 
-    const response = await fetch(`http://127.0.0.1:8000/articles/${articleId}/detail/`, {
+    const response = await fetch(`${main_url}/articles/${articleId}/detail/`, {
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',

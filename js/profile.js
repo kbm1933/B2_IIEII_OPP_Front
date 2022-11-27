@@ -1,3 +1,4 @@
+const main_url = "http://127.0.0.1:8000"
 const payload = localStorage.getItem('payload')
 const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
@@ -13,7 +14,7 @@ window.onload = () => {
 
 // 로딩 될때 user 이름과 프로필 사진을 불러옴
 async function loaduseruploadimg(){
-    const response = await fetch (`http://127.0.0.1:8000/users/${userId}/profile/`, {method:"GET"})
+    const response = await fetch (`${main_url}/users/${userId}/profile/`, {method:"GET"})
 
     response_json = await response.json()
 
@@ -27,7 +28,7 @@ async function loaduseruploadimg(){
     const user_profile_img = response_json['profile_img']
 
     const img = document.getElementById('user_profile_img')
-    img.setAttribute('src', `http://127.0.0.1:8000${user_profile_img}`)
+    img.setAttribute('src', `${main_url}${user_profile_img}`)
 
 
 }
@@ -40,7 +41,7 @@ async function userProfileUpload(){
     const formdata = new FormData()
     formdata.append('profile_img',img.files[0])
 
-    const response = await fetch(`http://127.0.0.1:8000/users/${userId}/profile/`, {
+    const response = await fetch(`${main_url}/users/${userId}/profile/`, {
         headers: { 
             'Authorization': 'Bearer '+ localStorage.getItem('access')
         },
@@ -57,7 +58,7 @@ async function oilpaintingimglist(){
     const personObj = JSON.parse(payload)
     const userId = personObj['user_id']
 
-    const response = await fetch ('http://127.0.0.1:8000/articles/',{
+    const response = await fetch (`${main_url}/articles/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -86,16 +87,16 @@ async function oilpaintingimglist(){
         }
 
         const article_img = document.createElement('img')
-        article_img.src = `http://127.0.0.1:8000${element.img.output_image}`
+        article_img.src = `${main_url}${element.img.output_image}`
         article_img.style.width = '250px';
         article_img.style.height = '250px';
         article_img.style.margin = '10px 15px';
         article_img.style.borderRadius = '15%'
         article_img.onmouseover = function() { 
-            article_img.src = `http://127.0.0.1:8000${element.img.input_image}`
+            article_img.src = `${main_url}${element.img.input_image}`
         }
         article_img.onmouseout = function() { 
-            article_img.src = `http://127.0.0.1:8000${element.img.output_image}`
+            article_img.src = `${main_url}${element.img.output_image}`
         }
 
         img_tag.appendChild(article_img)
@@ -107,7 +108,7 @@ async function oilpaintingimglist(){
 
 // basetool을 위한 로그아웃 기능
 function handleSignout(){
-    const response = fetch ('http://127.0.0.1:8000/users/signout/',{
+    const response = fetch (`${main_url}/users/signout/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -125,7 +126,7 @@ async function load_follow_list(){
     const personObj = JSON.parse(payload)
     const userId = personObj['user_id']
 
-    const response = await fetch (`http://127.0.0.1:8000/users/${userId}/follow/`,{
+    const response = await fetch (`${main_url}/users/${userId}/follow/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
@@ -164,7 +165,7 @@ async function load_follow_list(){
         const hr = document.createElement('hr')
 
         const pro_img = document.createElement('img')
-        pro_img.src = `http://127.0.0.1:8000${element.profile_img}`
+        pro_img.src = `${main_url}${element.profile_img}`
         pro_img.style.width = '50px';
         pro_img.style.height = '50px';
         
@@ -182,7 +183,7 @@ async function load_follow_list(){
         }
         
         follow_btn.onclick = async function() {
-            const response = await fetch(`http://127.0.0.1:8000/users/${element.id}/follow/`,{
+            const response = await fetch(`${main_url}/users/${element.id}/follow/`,{
                 headers : {
                     'Authorization' : 'Bearer ' + localStorage.getItem('access'),
                 },

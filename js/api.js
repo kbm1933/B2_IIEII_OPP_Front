@@ -1,8 +1,10 @@
+const main_url = "http://127.0.0.1:8000"
+
 window.onload = async function signincheck(){
     const payload = localStorage.getItem('payload')
 
     if (payload){
-    const response = await fetch (`http://127.0.0.1:8000/users/signin/`, {
+    const response = await fetch (`${main_url}/users/signin/`, {
         headers : {
             Authorization : localStorage.getItem('access')
         },
@@ -32,7 +34,7 @@ async function handleSignup(){
     var password1 = document.getElementById("password1").value
 
     if (password_valid(password, password1)) {
-        const response = await fetch('http://127.0.0.1:8000/users/signup/', {
+        const response = await fetch(`${main_url}/users/signup/`, {
             headers:{
                 'content-type' : 'application/json',
             },
@@ -75,7 +77,7 @@ async function handleSignin(){
     var username = document.getElementById("username").value
     var password = document.getElementById("password").value
 
-    const response = await fetch(`http://127.0.0.1:8000/users/signin/`, {
+    const response = await fetch(`${main_url}/users/signin/`, {
         headers: {
             'content-type' : 'application/json',
         },
