@@ -59,6 +59,7 @@ margin: 0px 5px;
 #comment_box > button {
   margin: 15px 0px;
   float: right;
+  margin-right: 10px;
 }
 
 #comment_list > input {
