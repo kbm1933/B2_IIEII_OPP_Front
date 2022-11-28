@@ -71,19 +71,32 @@ async function load_detail(){
             }
             location.reload()
     }
-
+    
     
     const comment_list = document.getElementById('comment_list')
     let output = ''
-
+    
     response_json.comment_set.reverse().forEach(element => {
         output += `
         <input class="form-control" type="text" value="${element.content}           -${element.article_user}" readonly>
+        <button type="button" class="btn btn-outline-dark" id="edit_comment_btn" onclick="location.href='edit_comment.html?comment_id=${element.id}'">edit comment</button>
+        <button type="button" class="btn btn-outline-dark" id="edit_delete" onclick="">delete</button>
         `
+        const commenteidtbtn = document.getElementById('edit_comment_btn')
+        
+        
+        commenteidtbtn.onclick = function() {
+            localStorage.setItem("comment_id",element.id)
+            window.location.href = "edit_comment.html"
+        }
+        
     })
-    comment_list.innerHTML = output
+    comment_list.innerHTML = output    
 }
 
+async function editComment() {
+
+}
 async function handleDelete(){
 
     const response = await fetch(`${main_url}/articles/${articleId}/detail/`, {
@@ -114,10 +127,15 @@ async function handleAddItem(){
     window.location.reload()
 }
 
-async function handleEditComment(){
-    const comment_input = document.getElementById('input_comment')
+function handleEditComment(){
+    let getLink = window.location.search;    
+    let getCode = getLink.split('=');    
+    let commentEditId = getCode[1];
+    let comment_article_id = localStorage.getItem('article_id')
 
-    const response = await fetch(`${main_url}/articles/${articleId}/comment/${commentId}/`,{
+    const comment_input = document.getElementById('input_comment').value
+    console.log(comment_input)
+    const response = fetch(`${main_url}/articles/${comment_article_id}/comment/${commentEditId}/`,{
         headers : {
             'Authorization' : 'Bearer ' + localStorage.getItem('access'),
             'content-type' : 'application/json',
