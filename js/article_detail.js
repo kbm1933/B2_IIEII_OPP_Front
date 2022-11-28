@@ -5,6 +5,7 @@ window.onload = () => {
 }
 
 const articleId = localStorage.getItem('article_id')
+const commentId = localStorage.getItem('comment_id')
 const payload = localStorage.getItem('payload')
 const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
@@ -111,6 +112,37 @@ async function handleAddItem(){
         })
     })
     window.location.reload()
+}
+
+async function handleEditComment(){
+    const comment_input = document.getElementById('input_comment')
+
+    const response = await fetch(`${main_url}/articles/${articleId}/comment/${commentId}/`,{
+        headers : {
+            'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            'content-type' : 'application/json',
+        },
+        method : 'PUT',
+        body : JSON.stringify({
+            "content":comment_input
+        })
+    })
+    window.location.reload()
+
+}
+
+async function handleDeleteComment(){
+
+    const response = await fetch(`${main_url}/articles/${articleId}/comment/${commentId}/`,{
+        headers : {
+            'Authorization' : 'Bearer ' + localStorage.getItem('access'),
+            'content-type' : 'application/json',
+        },    
+        method : 'DELETE',
+        body : {}
+    })
+    window.location.replace('article_detail.html')
+    window.console.log('delete')
 }
 
 function handleLogout(){
