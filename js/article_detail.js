@@ -145,7 +145,7 @@ function handleEditComment(){
             "content":comment_input
         })
     })
-    window.location.reload()
+    window.location.replace('article_detail.html')
 
 }
 
