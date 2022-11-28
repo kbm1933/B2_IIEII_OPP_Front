@@ -30,18 +30,17 @@ async function loaduseruploadimg(){
     const img = document.getElementById('user_profile_img')
     img.setAttribute('src', `${main_url}${user_profile_img}`)
 
-    // 사진 미리보기
-const fileInput = document.getElementById("file")
-const handleFiles = (e) => {
-    const fileReader = new FileReader()
-    const selectedFile = fileInput.files;
-    fileReader.readAsDataURL(selectedFile[0])
-    fileReader.onload = function(){
-        document.getElementById("user_profile_img").src = fileReader.result
+        // 사진 미리보기
+    const fileInput = document.getElementById("file")
+    const handleFiles = (e) => {
+        const fileReader = new FileReader()
+        const selectedFile = fileInput.files;
+        fileReader.readAsDataURL(selectedFile[0])
+        fileReader.onload = function(){
+            document.getElementById("user_profile_img").src = fileReader.result
+        }
     }
-}
-fileInput.addEventListener("change", handleFiles)
-
+    fileInput.addEventListener("change", handleFiles)
 
 }
 

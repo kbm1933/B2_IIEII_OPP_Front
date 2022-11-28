@@ -70,3 +70,10 @@ margin: 0px 5px;
   background-color : transparent;
   border : 0;
 }
+
+
+.btn{
+  margin-top: 2px;
+  float: right;
+  margin-bottom: 20px;
+}

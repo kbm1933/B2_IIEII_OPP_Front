@@ -22,13 +22,9 @@ li a {
   margin-top: 150px;
 }
 
-.left_box {
-  margin-top : 20px;
-  margin-bottom: 20px;
-}
 
 .left_box>button{
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 #title{
@@ -37,4 +33,12 @@ li a {
 
 #content{
     height: 200px;
+}
+
+.editcomment{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 150px;
 }

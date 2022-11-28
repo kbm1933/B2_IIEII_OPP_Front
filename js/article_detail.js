@@ -86,6 +86,7 @@ async function load_detail(){
     comment_list.innerHTML = output    
 }
 
+
 async function handleDelete(){
 
     const response = await fetch(`${main_url}/articles/${articleId}/detail/`, {
@@ -151,6 +152,8 @@ async function handleDeleteComment(commentId){
     window.location.replace('article_detail.html')
     window.console.log('delete')
 }
+
+
 
 function handleLogout(){
     localStorage.clear()

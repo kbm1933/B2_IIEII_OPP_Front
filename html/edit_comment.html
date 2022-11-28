@@ -13,19 +13,20 @@
     <link rel="stylesheet" href="../css/article_create.css">
 </head>
 <body>
-    <div class="basetool">
-        <nav class="navbar navbar-dark bg-dark" id = 'navbar'>
-            <a class="navbar-brand" href="main.html">IIEII OPP</a>
-            <div class = 'nav-item'>
-                <ul>
-                    <li><a href="image_transfer.html">유화 만들기</a></li>
-                    <li><a href="likes_page.html">내가 좋아요한 게시글</a></li>
-                    <li><a href="profile.html">프로필</a></li>
-                    <li><a href="javascript:handleLogout();">로그아웃</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+<div class="basetool">
+    <nav class="navbar navbar-dark bg-dark" id = 'navbar'>
+        <a class="navbar-brand" href="main.html">IIEII OPP</a>
+        <div class = 'nav-item'>
+            <ul>
+                <li><a href="image_transfer.html">유화 만들기</a></li>
+                <li><a href="likes_page.html">내가 좋아요한 게시글</a></li>
+                <li><a href="profile.html">프로필</a></li>
+                <li><a href="javascript:handleLogout();">로그아웃</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
 
 <div class = 'wrap'>
     <div class = 'right_box'>
@@ -33,16 +34,16 @@
     </div>
 
     <form>                
-        </div>
         <div class = 'left_box'>
-            <p> <b>Edit Comment</b> </p>
-            <div id = 'comment'>
+            <h1>Edit Comment</h1>
+            <div class='comment' id = 'editcomment'>
                 <div class="form-floating mb-3" id = 'comment_box'>
                     <input type="text" class="form-control" id="input_comment" placeholder="COMMENT" >
                     <label for="input_comment">COMMENT를 입력해주세요</label>
-                    <button type="button" class="btn btn-outline-dark" onclick="handleEditComment()">write</button>                
+                    <button type="button" class="btn btn-outline-dark" id='edit_btn' onclick="handleEditComment()">수정하기</button>                
                 </div>
-      </div>  
+            </div>  
+        </div> 
     </form>
 </div>
 </body>
