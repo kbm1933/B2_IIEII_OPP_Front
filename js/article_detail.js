@@ -5,7 +5,7 @@ window.onload = () => {
 }
 
 const articleId = localStorage.getItem('article_id')
-const commentId = localStorage.getItem('comment_id')
+// const commentId = localStorage.getItem('comment_id')
 const payload = localStorage.getItem('payload')
 const personObj = JSON.parse(payload)
 const userId = personObj['user_id']
@@ -80,23 +80,12 @@ async function load_detail(){
         output += `
         <input class="form-control" type="text" value="${element.content}           -${element.article_user}" readonly>
         <button type="button" class="btn btn-outline-dark" id="edit_comment_btn" onclick="location.href='edit_comment.html?comment_id=${element.id}'">edit comment</button>
-        <button type="button" class="btn btn-outline-dark" id="edit_delete" onclick="">delete</button>
-        `
-        const commenteidtbtn = document.getElementById('edit_comment_btn')
-        
-        
-        commenteidtbtn.onclick = function() {
-            localStorage.setItem("comment_id",element.id)
-            window.location.href = "edit_comment.html"
-        }
-        
+        <button type="button" class="btn btn-outline-dark" id="edit_delete" onclick=handleDeleteComment(${element.id})>delete</button>
+        `      
     })
     comment_list.innerHTML = output    
 }
 
-async function editComment() {
-
-}
 async function handleDelete(){
 
     const response = await fetch(`${main_url}/articles/${articleId}/detail/`, {
@@ -149,7 +138,7 @@ function handleEditComment(){
 
 }
 
-async function handleDeleteComment(){
+async function handleDeleteComment(commentId){
 
     const response = await fetch(`${main_url}/articles/${articleId}/comment/${commentId}/`,{
         headers : {
